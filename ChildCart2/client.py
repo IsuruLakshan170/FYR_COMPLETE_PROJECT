@@ -33,9 +33,9 @@ def clientconfigurations():
     row = config.getNetConfigurations()
     HOST = row[0]
     LOCALHOST = row[1]
-    PORT = row[2]
-    RECEIVER_TIMEOUT = row[3]
-    SYNC_CONST = row[4]
+    PORT =int(row[2]) 
+    RECEIVER_TIMEOUT = int(row[3])
+    SYNC_CONST = int(row[4])
 
 ########################################################################
 #------------------------------PEER   DATA-----------------------------#
@@ -104,7 +104,7 @@ def connectNetwork(type):
 
 #----------------------background process --------------------------------
 def backgroudNetworkProcess():
-      #clientconfigurations()
+      clientconfigurations()
       while True:
             directoryModelData = "modelData" 
             modelDataSize = len([f for f in os.listdir(directoryModelData) if os.path.isfile(os.path.join(directoryModelData, f))])

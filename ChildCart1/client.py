@@ -21,7 +21,8 @@ HOST = '141.145.200.6' #141.145.200.6
 LOCALHOST = '141.145.200.6'
 PORT = 9000
 RECEIVER_TIMEOUT = 30
-SYNC_CONST = 1 
+SYNC_CONST = 1
+
 
 def clientconfigurations():
     global HOST
@@ -33,10 +34,11 @@ def clientconfigurations():
     row = config.getNetConfigurations()
     HOST = row[0]
     LOCALHOST = row[1]
-    PORT = row[2]
-    RECEIVER_TIMEOUT = row[3]
-    SYNC_CONST = row[4]
+    PORT =int(row[2]) 
+    RECEIVER_TIMEOUT = int(row[3])
+    SYNC_CONST = int(row[4])
 
+    
 ########################################################################
 #------------------------------PEER   DATA-----------------------------#
 MODELPARAMETERS = encodeParameter.encodeModelParameters()
@@ -104,7 +106,7 @@ def connectNetwork(type):
 
 #----------------------background process --------------------------------
 def backgroudNetworkProcess():
-      #clientconfigurations()
+      clientconfigurations()
       while True:
             directoryModelData = "modelData" 
             modelDataSize = len([f for f in os.listdir(directoryModelData) if os.path.isfile(os.path.join(directoryModelData, f))])
@@ -133,4 +135,3 @@ def backgroudNetworkProcess():
                 connectNetwork("SHELL")
             
             time.sleep(5)  
-        
