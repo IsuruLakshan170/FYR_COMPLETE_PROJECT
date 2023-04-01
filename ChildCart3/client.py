@@ -38,6 +38,7 @@ def clientconfigurations():
     SYNC_CONST = int(row[4])
 
 
+
 ########################################################################
 #------------------------------PEER   DATA-----------------------------#
 MODELPARAMETERS = encodeParameter.encodeModelParameters()
